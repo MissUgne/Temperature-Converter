@@ -15,28 +15,31 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
-    
+//    Convert F to C
     @IBAction func pressedToC(_sender: UIButton){
         if tempValueText.text == "" {
             return
             
-        }else {
-             let result = Double(tempValueText.text!)! - 32.0 * (5.0/9.0)
-            resultLabel.text = String(result) + " C"
+        }
+        else {
+            let fahrenheit = Int(tempValueText.text!)!
+            let result = Int(Double((fahrenheit - 32)) / 1.8)
+            resultLabel.text = String(Int(result)) + " C"
         }
     }
     
-    
+//    Convert C to F
     @IBAction func pressedToF(_sender: UIButton){
         if tempValueText.text == "" {
             return
             
-        }else {
-            let result2 = Double(tempValueText.text!)! * (9.0/5.0) + 32.0
-            resultLabel.text = String(result2) + " F"
+        }
+        else {
+            let celsius = Int(tempValueText.text!)!
+            let result2 = Int(Double(celsius) * (9/5)) + 32
+            resultLabel.text = String(Int(result2)) + " F"
         }
     }
 }
